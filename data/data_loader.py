@@ -16,12 +16,13 @@ def fetch_historical_data(ticker: str, start_date: str, end_date: str) -> pd.Dat
 
     #Fetch data from Yahoo Finance
     data = yf.download(ticker, start=start_date, end=end_date)
+    data.columns = [col[0].lower() if isinstance(col, tuple) else col.lower() for col in data.columns]
 
     #Fill missing values
     data = data.ffill().bfill()
 
     #Calculate daily pct returns efficiently
-    data['Daily_Return'] = data['Close'].pct_change()
+    data['daily_return'] = data['close'].pct_change()
 
     data = data.dropna()
 
