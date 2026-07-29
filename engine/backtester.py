@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 from data.data_loader import fetch_historical_data
+from analytics.metrics import generate_performance_report
 
 class VectorizedBacktester:
     """
@@ -70,3 +71,8 @@ if __name__ == "__main__":
     
     print("\nBacktest Execution Complete!")
     print(results[['close', 'sma_short', 'sma_long', 'position', 'trade_executed', 'net_strategy_return', 'portfolio_value']].tail())
+
+    report = generate_performance_report(results)
+    print("\n--- Strategy Performance Report ---")
+    for key, value in report.items():
+        print(f"{key}: {value}")
