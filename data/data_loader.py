@@ -19,7 +19,7 @@ def fetch_historical_data(ticker: str, start_date: str, end_date: str) -> pd.Dat
     data.columns = [col[0].lower() if isinstance(col, tuple) else col.lower() for col in data.columns]
 
     #Fill missing values
-    data = data.ffill().bfill()
+    data = data.ffill()
 
     #Calculate daily pct returns efficiently
     data['daily_return'] = data['close'].pct_change()
