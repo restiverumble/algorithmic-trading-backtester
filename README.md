@@ -1,6 +1,6 @@
 # Vectorized Algorithmic Trading Backtester
 
-This is an algorithmic trading backtester that uses high-performance Python code for historical simulations of financial assets. The backtester takes advantage of Pandas vectorization, enabling fast strategy evaluation without iterative looping and calculation of performance metrics at the institutional level.
+This is an algorithmic trading backtester that uses high-performance Python code for historical simulations of financial assets. The backtester takes advantage of Pandas vectorization, enabling fast strategy evaluation without iterative looping and calculation of performance metrics.
 
 ## Tech Stack
 * **Language:** Python
